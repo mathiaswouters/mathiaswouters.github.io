@@ -1,29 +1,47 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <title>Mathias Wouters - Basisproject - API Development</title>
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
     <div>
-        <h1>Countries</h1>
-        <p>below is a ranking of different countries with information about that country</p>
-    </div>
+        <!-- API 1 - Get -->
+        <div class="api1get">
+            <h1>Countries (GET request 1)</h1>
+            <p>below is a ranking of different countries with information about that country</p>
+            <hr>
+        
+            <div x-data="{ 
+                country_list: null,
+                async getData(){
+                    this.country_list = await (await fetch('https://world-ranking-service-mathiaswouters.cloud.okteto.net/country')).json();
+                }
+            }">
+                <button x-on:click="getData">Show all countries</button>
+                <dl>
+                    <dt>Country:</dt> <dd><strong x-text="country_list[0].country"></strong></dd>
+                    <dt>Leader:</dt> <dd><strong x-text="country_list[0].leader">Placeholder</strong></dd>
+                    <dt>Capital:</dt> <dd><strong x-text="country_list[0].capital">Placeholder</strong></dd>
+                    <dt>Population:</dt> <dd><strong x-text="country_list[0].population">Placeholder</strong></dd>
+                    <dt>Area:</dt> <dd><strong x-text="country_list[0].area">Placeholder</strong></dd>
+                    <dt>Ranking:</dt> <dd><strong x-text="country_list[0].ranking">Placeholder</strong></dd>
+                </dl>
+            </div>
+        </div>
 
-    <div x-data="{
-        cities: null,
-        countries: null,
-        async getData(){
-            this.cities = await (await fetch('https://world-ranking-service-mathiaswouters.cloud.okteto.net/')).json();
-        }
-    }">
-    <button x-on:click="getData">Show all countries</button>    
-    <strong x-text="cities[0].title">placeholder</strong>
-    </div>
+        <!-- API 2 - Get -->
+        <div class="api2get">
+            <h1>Cities (GET request 2)</h1>
+            <p>below is a ranking of different cities with information about that city</p>
+            <hr>
+        </div>
 
-    <div>
-        <h1>Cities</h1>
-        <p>below is a ranking of different cities with information about that city</p>
+        <!-- API 3 - Post -->
+        <div class="api3post"></div>
+
     </div>
 </body>
 </html>
