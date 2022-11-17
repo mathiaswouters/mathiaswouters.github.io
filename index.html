@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+</head>
+
+<body>
+    <div>
+        <h1>Countries</h1>
+        <p>below is a ranking of different countries with information about that country</p>
+    </div>
+
+    <div x-data="{
+        cities: null,
+        countries: null,
+        async getData(){
+            this.cities = await (await fetch('https://world-ranking-service-mathiaswouters.cloud.okteto.net/')).json();
+        }
+    }">
+    <button x-on:click="getData">Show all countries</button>    
+    <strong x-text="cities[0].title">placeholder</strong>
+    </div>
+
+    <div>
+        <h1>Cities</h1>
+        <p>below is a ranking of different cities with information about that city</p>
+    </div>
+</body>
+</html>
