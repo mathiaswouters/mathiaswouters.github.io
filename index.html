@@ -4,39 +4,143 @@
     <title>Mathias Wouters - Basisproject - API Development</title>
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
 <body>
-    <div>
+    <div class="container col">
         <!-- API 1 - Get -->
-        <div class="api1get">
+        <div class="api1get container row">
             <h1>Countries (GET request 1)</h1>
             <p>below is a ranking of different countries with information about that country</p>
             <hr>
-        
+            <!-- https://world-ranking-service-mathiaswouters.cloud.okteto.net/country -->
             <div x-data="{ 
                 country_list: null,
                 async getData(){
                     this.country_list = await (await fetch('https://world-ranking-service-mathiaswouters.cloud.okteto.net/country')).json();
                 }
             }">
-                <button x-on:click="getData">Show all countries</button>
-                <dl>
-                    <dt>Country:</dt> <dd><strong x-text="country_list[0].country"></strong></dd>
-                    <dt>Leader:</dt> <dd><strong x-text="country_list[0].leader">Placeholder</strong></dd>
-                    <dt>Capital:</dt> <dd><strong x-text="country_list[0].capital">Placeholder</strong></dd>
-                    <dt>Population:</dt> <dd><strong x-text="country_list[0].population">Placeholder</strong></dd>
-                    <dt>Area:</dt> <dd><strong x-text="country_list[0].area">Placeholder</strong></dd>
-                    <dt>Ranking:</dt> <dd><strong x-text="country_list[0].ranking">Placeholder</strong></dd>
-                </dl>
+                <button x-on:click="getData" class="btn btn-secondary btn-sm">Show all countries</button>
+                <div class="row py-4">
+                    <div class="col">
+                        <strong><p>Country 1:</p></strong>
+                        <ul>
+                            <li>Country: <strong x-text="country_list[0].country">Placeholder</strong></li>
+                            <li>Leader: <strong x-text="country_list[0].leader">Placeholder</strong></li>
+                            <li>Capital: <strong x-text="country_list[0].capital">Placeholder</strong></li>
+                            <li>Population: <strong x-text="country_list[0].population">Placeholder</strong></li>
+                            <li>Area: <strong x-text="country_list[0].area">Placeholder</strong></li>
+                            <li>Ranking: <strong x-text="country_list[0].ranking">Placeholder</strong></li>
+                        </ul>
+                    </div>
+
+                    <div class="col">
+                        <strong><p>Country 2:</p></strong>
+                        <ul>
+                            <li>Country: <strong x-text="country_list[1].country">Placeholder</strong></li>
+                            <li>Leader: <strong x-text="country_list[1].leader">Placeholder</strong></li>
+                            <li>Capital: <strong x-text="country_list[1].capital">Placeholder</strong></li>
+                            <li>Population: <strong x-text="country_list[1].population">Placeholder</strong></li>
+                            <li>Area: <strong x-text="country_list[1].area">Placeholder</strong></li>
+                            <li>Ranking: <strong x-text="country_list[1].ranking">Placeholder</strong></li>
+                        </ul>
+                    </div>
+
+                    <div class="col">
+                        <strong><p>Country 3:</p></strong>
+                        <ul>
+                            <li>Country: <strong x-text="country_list[2].country">Placeholder</strong></li>
+                            <li>Leader: <strong x-text="country_list[2].leader">Placeholder</strong></li>
+                            <li>Capital: <strong x-text="country_list[2].capital">Placeholder</strong></li>
+                            <li>Population: <strong x-text="country_list[2].population">Placeholder</strong></li>
+                            <li>Area: <strong x-text="country_list[2].area">Placeholder</strong></li>
+                            <li>Ranking: <strong x-text="country_list[2].ranking">Placeholder</strong></li>
+                        </ul>
+                    </div>
+
+                    <div class="col">
+                        <strong><p>Country 4:</p></strong>
+                        <ul>
+                            <li>Country: <strong x-text="country_list[3].country">Placeholder</strong></li>
+                            <li>Leader: <strong x-text="country_list[3].leader">Placeholder</strong></li>
+                            <li>Capital: <strong x-text="country_list[3].capital">Placeholder</strong></li>
+                            <li>Population: <strong x-text="country_list[3].population">Placeholder</strong></li>
+                            <li>Area: <strong x-text="country_list[3].area">Placeholder</strong></li>
+                            <li>Ranking: <strong x-text="country_list[3].ranking">Placeholder</strong></li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
 
         <!-- API 2 - Get -->
-        <div class="api2get">
+        <div class="api2get container row">
             <h1>Cities (GET request 2)</h1>
             <p>below is a ranking of different cities with information about that city</p>
             <hr>
+            <!-- https://world-ranking-service-mathiaswouters.cloud.okteto.net/city -->
+            <div x-data="{ 
+                city_list: null,
+                async getData(){
+                    this.city_list = await (await fetch('https://world-ranking-service-mathiaswouters.cloud.okteto.net/city')).json();
+                }
+            }">
+                <button x-on:click="getData" class="btn btn-secondary btn-sm">Show all cities</button>
+                <div class="row py-4">
+                    <div class="col">
+                        <strong><p>City 1:</p></strong>
+                        <ul>
+                            <li>City: <strong x-text="city_list[0].name_city">Placeholder</strong></li>
+                            <li>Country: <strong x-text="city_list[0].country">Placeholder</strong></li>
+                            <li>Mayor: <strong x-text="city_list[0].mayor">Placeholder</strong></li>
+                            <li>Population: <strong x-text="city_list[0].population">Placeholder</strong></li>
+                            <li>Date founded: <strong x-text="city_list[0].date_founded">Placeholder</strong></li>
+                            <li>Area: <strong x-text="city_list[0].area">Placeholder</strong></li>
+                            <li>Ranking: <strong x-text="city_list[0].ranking">Placeholder</strong></li>
+                        </ul>
+                    </div>
+
+                    <div class="col">
+                        <strong><p>City 2:</p></strong>
+                        <ul>
+                            <li>City: <strong x-text="city_list[1].name_city">Placeholder</strong></li>
+                            <li>Country: <strong x-text="city_list[1].country">Placeholder</strong></li>
+                            <li>Mayor: <strong x-text="city_list[1].mayor">Placeholder</strong></li>
+                            <li>Population: <strong x-text="city_list[1].population">Placeholder</strong></li>
+                            <li>Date founded: <strong x-text="city_list[1].date_founded">Placeholder</strong></li>
+                            <li>Area: <strong x-text="city_list[1].area">Placeholder</strong></li>
+                            <li>Ranking: <strong x-text="city_list[1].ranking">Placeholder</strong></li>
+                        </ul>
+                    </div>
+
+                    <div class="col">
+                        <strong><p>City 3:</p></strong>
+                        <ul>
+                            <li>City: <strong x-text="city_list[2].name_city">Placeholder</strong></li>
+                            <li>Country: <strong x-text="city_list[2].country">Placeholder</strong></li>
+                            <li>Mayor: <strong x-text="city_list[2].mayor">Placeholder</strong></li>
+                            <li>Population: <strong x-text="city_list[2].population">Placeholder</strong></li>
+                            <li>Date founded: <strong x-text="city_list[2].date_founded">Placeholder</strong></li>
+                            <li>Area: <strong x-text="city_list[2].area">Placeholder</strong></li>
+                            <li>Ranking: <strong x-text="city_list[2].ranking">Placeholder</strong></li>
+                        </ul>
+                    </div>
+
+                    <div class="col">
+                        <strong><p>City 4:</p></strong>
+                        <ul>
+                            <li>City: <strong x-text="city_list[3].name_city">Placeholder</strong></li>
+                            <li>Country: <strong x-text="city_list[3].country">Placeholder</strong></li>
+                            <li>Mayor: <strong x-text="city_list[3].mayor">Placeholder</strong></li>
+                            <li>Population: <strong x-text="city_list[3].population">Placeholder</strong></li>
+                            <li>Date founded: <strong x-text="city_list[3].date_founded">Placeholder</strong></li>
+                            <li>Area: <strong x-text="city_list[3].area">Placeholder</strong></li>
+                            <li>Ranking: <strong x-text="city_list[3].ranking">Placeholder</strong></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <!-- API 3 - Post -->
